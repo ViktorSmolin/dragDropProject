@@ -1,0 +1,143 @@
+.App {
+font-family: Arial, sans-serif;
+height: 700px;
+padding: 20px;
+text-align: center;
+}
+.column {
+background-color: #f8f9fa;
+border-radius: 8px;
+padding: 15px;
+min-width: 300px;
+min-height: 400px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+transition: background-color 0.3s;
+}
+
+
+.column.drag-over {
+background-color: #e3f2fd;
+border: 2px dashed #2196f3;
+}
+
+
+.column-header {
+align-items: center;
+border-bottom: 2px solid #dee2e6;
+display: flex;
+justify-content: space-between;
+margin-bottom: 15px;
+padding-bottom: 10px;
+}
+
+
+.column-header h2 {
+margin: 0;
+color: #495057;
+}
+
+
+.task-count {
+align-items: center;
+background-color: #6c757d;
+border-radius: 50%;
+color: white;
+display: flex;
+font-size: 12px;
+font-weight: bold;
+height: 25px;
+justify-content: center;
+width: 25px;
+}
+
+
+.column-content {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+
+.task-card {
+background-color: white;
+border-radius: 6px;
+padding: 15px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+cursor: move;
+transition: transform 0.2s, box-shadow 0.2s;
+border-left: 4px solid #007bff;
+}
+
+
+.task-card:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+
+.task-card.dragging {
+opacity: 0.5;
+transform: rotate(5deg);
+}
+
+
+.task-card.highlighted {
+animation: highlight 2s ease-in-out;
+}
+
+
+@keyframes highlight {
+0%, 100% { background-color: white; }
+50% { background-color: #fff3cd; }
+}
+
+
+.task-card h3 {
+margin: 0 0 10px 0;
+color: #212529;
+font-size: 16px;
+}
+
+
+.task-card p {
+margin: 0 0 10px 0;
+color: #6c757d;
+font-size: 14px;
+line-height: 1.4;
+}
+
+
+.priority {
+display: inline-block;
+padding: 4px 8px;
+border-radius: 12px;
+font-size: 12px;
+font-weight: bold;
+text-transform: uppercase;
+}
+
+
+.priority-high {
+background-color: #dc3545;
+color: white;
+}
+
+
+.priority-medium {
+background-color: #ffc107;
+color: #212529;
+}
+
+
+.priority-low {
+background-color: #28a745;
+color: white;
+}
+
+
+@media (max-width: 768px) {
+.board-columns {
+flex-direction: column;
+align-items: center;
+}
+}
