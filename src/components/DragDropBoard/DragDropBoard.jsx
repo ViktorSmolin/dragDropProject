@@ -14,7 +14,6 @@ function DragDropBoard() {
     { id: "inProgress", title: "В процессе" },
     { id: "done", title: "Сделано" },
   ]);
-  console.log("sds");
   const [tasks, setTasks] = useState([
     {
       id: "1",
