@@ -1,12 +1,14 @@
 import DragDropBoard from './components/DragDropBoard/DragDropBoard'
 import './App.css'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 function App() {
  return (
-    <div className="App">
+  <ErrorBoundary>    <div className="App">
       <h1>Drag & Drop + История</h1>
       <DragDropBoard />
-    </div>
+    </div></ErrorBoundary>
+
   )
 }
 

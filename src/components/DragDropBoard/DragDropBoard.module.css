@@ -1,4 +1,4 @@
-.drag_drop_board {
+.root {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -147,4 +147,54 @@
 }
 .hint_icon {
   font-size: 18px;
+}
+.history_info_compact {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: #e3f2fd;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #1565c0;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .history_info_compact {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+}
+.error_indicator {
+  background: #fff3cd;
+  color: #856404;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.clear_errors_btn {
+  padding: 8px 16px;
+  background: #ffc107;
+  color: #212529;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.clear_errors_btn:hover {
+  background: #e0a800;
+}
+
+@media (max-width: 768px) {
+  .clear_errors_btn {
+    margin-top: 8px;
+    width: 100%;
+  }
 }
