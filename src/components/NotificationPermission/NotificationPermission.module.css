@@ -1,0 +1,62 @@
+.permission_banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.permission_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.permission_content span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.permission_button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.permission_button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.permission_button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.permission_button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .permission_content {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .permission_button {
+    align-self: center;
+    min-width: 120px;
+  }
+}

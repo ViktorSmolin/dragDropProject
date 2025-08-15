@@ -116,8 +116,8 @@ function Task({
       e.dataTransfer.effectAllowed = 'move';
       
       console.log(`🚀 Начало перетаскивания задачи: "${task.title}"`);
-      console.log(`📍 Начальная позиция: x=${e.clientX}, y=${e.clientY}`);
-      console.log(`👻 Создан кастомный ghost элемент`);
+      console.log(`Начальная позиция: x=${e.clientX}, y=${e.clientY}`);
+      console.log(`Создан кастомный ghost элемент`);
       
       onDragStart(task);
     }
@@ -147,7 +147,7 @@ function Task({
       setDragPosition({ x: 0, y: 0 });
       
       console.log(`✅ Завершено перетаскивание задачи: "${task.title}"`);
-      console.log(`👻 Ghost элемент удален`);
+      console.log(`Ghost элемент удален`);
       
       onDragEnd(task);
     }
