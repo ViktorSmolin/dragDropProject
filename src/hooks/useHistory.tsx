@@ -86,7 +86,7 @@ const useHistory = () => {
     
     window.history.replaceState(entry.state, entry.title, entry.url);
     
-    console.log(`🎯 Переход ${direction} на ${steps} шаг(ов) к записи ${targetIndex}: "${entry.title}"`);
+    console.log(`Переход ${direction} на ${steps} шаг(ов) к записи ${targetIndex}: "${entry.title}"`);
     return entry;
   }, [history, currentIndex]);
 

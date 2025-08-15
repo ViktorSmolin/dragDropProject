@@ -6,9 +6,10 @@ import { ColumnType, DragDropBoardProps } from "./types";
 import { TaskData } from "../Task/type";
 import useHistory from "../../hooks/useHistory";
 import HistoryNavigator from '../HistoryNavigator/HistoryNavigator';
+import { createColumnNotFoundError, createDragDataError, createTaskNotFoundError, ErrorHandler, ErrorType } from "../../Util/ErrorHandler";
+import NotificationPermission from "../NotificationPermission";
 
 import styles from "./DragDropBoard.module.css";
-import { createColumnNotFoundError, createDragDataError, createTaskNotFoundError, ErrorHandler, ErrorType } from "../../Util/ErrorHandler";
 
 const INITIAL_COLUMNS: ColumnType[] = [
   { id: "todo", title: "Задача" },
@@ -32,9 +33,6 @@ const INITIAL_TASKS: TaskData[] = [
     columnId: "todo",
   },
 ];
-
-const HIGHLIGHT_DURATION = 2000;
-
 function DragDropBoard({ className, style }: DragDropBoardProps) {
   const { showNotification } = useNotifications();
   const { 
@@ -301,7 +299,7 @@ function DragDropBoard({ className, style }: DragDropBoardProps) {
       console.log(`✏️ Задача "${updatedTask.title}" успешно обновлена`);
 
     } catch (error) {
-      console.error('💥 Ошибка при обновлении задачи:', error);
+      console.error('Ошибка при обновлении задачи:', error);
       
       const appError = ErrorHandler.createError(
         ErrorType.UNKNOWN_ERROR,
@@ -361,7 +359,7 @@ function DragDropBoard({ className, style }: DragDropBoardProps) {
       console.log(`➕ Создана новая задача: "${newTask.title}"`);
 
     } catch (error) {
-      console.error('💥 Ошибка при создании задачи:', error);
+      console.error('Ошибка при создании задачи:', error);
       
       const appError = ErrorHandler.createError(
         ErrorType.UNKNOWN_ERROR,
@@ -418,7 +416,7 @@ function DragDropBoard({ className, style }: DragDropBoardProps) {
               }}
               className={styles.clear_errors_btn}
             >
-              🧹 Очистить ошибки
+              Очистить ошибки
             </button>
           )}
         </div>
@@ -432,6 +430,7 @@ function DragDropBoard({ className, style }: DragDropBoardProps) {
       </>
     );
   };
+
 
   const renderEditHint = () => (
     <div className={styles.edit_hint}>
@@ -469,12 +468,14 @@ function DragDropBoard({ className, style }: DragDropBoardProps) {
 
   return (
     <div className={clsx(styles.root, className)} style={style}>
+      <NotificationPermission />
       {renderBoardControls()}
       {renderEditHint()}
       {renderDragInfo()}
       {renderColumns()}
     </div>
   );
+  
 }
 
 export default DragDropBoard;
